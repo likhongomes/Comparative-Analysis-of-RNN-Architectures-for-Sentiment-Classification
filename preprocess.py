@@ -27,6 +27,12 @@ def load_and_preprocess_data(file_path):
     def remove_sentence_breaks(sentence):
         return sentence.replace('<br />','')
     
+    def leanify(sentence):
+        for word in sentence:
+            if word not in all_words['Word']:
+                sentence.remove(word)
+        return sentence
+    
     # Load data
     df = pd.read_csv(file_path)
     
@@ -46,6 +52,16 @@ def load_and_preprocess_data(file_path):
             ## Tokenize the reviews
             df[col] = df[col].apply(nltk.word_tokenize)
             
+
+    all_words = df['review'].explode()
+    word_frequencies = all_words.value_counts().reset_index()
+    word_frequencies.columns = ['Word', 'Frequency']
+    word_frequencies = word_frequencies[0:10000]
+
+    for col in df.columns:
+        ## Leanify Sentence
+        df[col] = df[col].apply(leanify)
+            
     return df
 
 
@@ -63,15 +79,15 @@ def word_frequencies(df):
 
 
 
-def retain_to_10k_words(sentence):
-    for word in sentence:
-        if word not in all_words['Word']:
-            sentence.remove(word)
-    return sentence
+# def retain_to_10k_words(sentence):
+#     for word in sentence:
+#         if word not in all_words['Word']:
+#             sentence.remove(word)
+#     return sentence
 
-def leanify_sentence(df):
-    df['review'] = df['review'].apply(retain_to_10k_words)
-    return df
+# def leanify_sentence(df):
+#     df['review'] = df['review'].apply(retain_to_10k_words)
+#     return df
 
 if __name__ == "__main__":
     # Set pandas display options to show full content
@@ -84,9 +100,9 @@ if __name__ == "__main__":
     all_words = word_frequencies(processed_data)
     print(all_words.shape)
     print(len(set(processed_data['review'].explode())))
-    leanify_sentence(processed_data)
-    # print(processed_data.head())
-    print(len(set(processed_data['review'].explode())))
+    # leanify_sentence(processed_data)
+    # # print(processed_data.head())
+    # print(len(set(processed_data['review'].explode())))
 
 
     
