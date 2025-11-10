@@ -1,0 +1,21 @@
+Model,Activation,Optimizer,Seq Length,Grad Clipping,Accuracy,F1,Epoch Time (s)
+BILSTM,relu,adam,100,Yes,0.8151,0.815,48.09
+LSTM,tanh,adam,100,Yes,0.8141,0.814,24.43
+BILSTM,relu,rmsprop,100,Yes,0.8134,0.8133,49.59
+BILSTM,tanh,adam,100,No,0.8096,0.8095,47.81
+BILSTM,tanh,adam,100,Yes,0.8096,0.8094,47.91
+LSTM,tanh,adam,100,No,0.8086,0.8086,24.15
+BILSTM,relu,adam,100,No,0.8064,0.8064,47.72
+LSTM,relu,adam,100,Yes,0.8035,0.8033,24.54
+LSTM,relu,rmsprop,100,Yes,0.8032,0.8028,23.98
+BILSTM,tanh,rmsprop,100,Yes,0.8027,0.8012,48.1
+BILSTM,sigmoid,adam,100,Yes,0.7957,0.7948,48.18
+LSTM,tanh,rmsprop,100,Yes,0.7946,0.7935,24.89
+RNN,relu,adam,100,Yes,0.7924,0.7912,9.98
+BILSTM,tanh,rmsprop,100,No,0.79,0.7871,46.93
+BILSTM,sigmoid,rmsprop,100,Yes,0.789,0.7865,48.33
+LSTM,sigmoid,rmsprop,100,Yes,0.7885,0.7867,24.61
+LSTM,relu,adam,100,No,0.7856,0.7856,24.01
+RNN,relu,rmsprop,100,Yes,0.7849,0.7849,9.18
+LSTM,tanh,rmsprop,100,No,0.7725,0.772,24.98
+LSTM,tanh,adam,50,Yes,0.7675,0.7675,13.91

@@ -1,2 +1,8 @@
 nltk
 tensorflow
+torch
+pandas
+numpy
+scikit-learn
+keras
+matplotlib
