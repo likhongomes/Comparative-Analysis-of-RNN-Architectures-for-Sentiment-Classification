@@ -1,6 +1,6 @@
 ## README.md
 
-````markdown
+
 # Comparative Analysis of RNN Architectures for Sentiment Classification
 
 This repository implements and evaluates RNN, LSTM, and Bidirectional LSTM models for binary sentiment classification on IMDb (50k reviews), following your project spec.
@@ -11,7 +11,7 @@ This repository implements and evaluates RNN, LSTM, and Bidirectional LSTM model
   ```bash
   python -m venv .venv && source .venv/bin/activate  # or .venv\Scripts\activate on Windows
   pip install -r requirements.txt
-````
+
 
 * First run will download IMDb via `torchtext` into `.data/`.
 
